@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>3D Solar System - NASA Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="Explore the 3D Solar System using NASA data. Learn about the planets, their orbits, and their sizes." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="3D Solar System - NASA Data" />
+    <meta property="og:description" content="Explore the 3D Solar System using NASA data." />
+    <meta property="og:title" content="3D Solar System - NASA Data" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:image" content="https://yourwebsite.com/og_img.jpg" />
+    <meta name="robots" content="noarchive" />
+    <link rel="canonical" href="https://yourwebsite.com" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="preload" as="image" href="./assets/images/splash_bennu.png">
+    <link rel="preload" as="font" type="font/woff" href="./assets/default/fonts/Metropolis-Light.woff" crossorigin>
+    <link rel="preload" as="font" type="font/woff" href="./assets/default/fonts/Metropolis-SemiBold.woff" crossorigin>
+    <link rel="icon" type="image/png" sizes="194x194" href="./favicon-194x194.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#2b5797" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="msapplication-config" content="./browserconfig.xml" />
+    <meta name="theme-color" content="#000000" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            overflow: hidden;
+        }
+        
+        #loading-screen {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: black;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        #loading-screen-wrapper {
+            animation: fadeInDelayed 0.8s linear;
+        }
+
+        #loading-screen-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            text-align: center;
+        }
+
+        #loading-screen-logo {
+            position: absolute;
+            left: 50%;
+            top: 15%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 110px;
+            height: 110px;
+            opacity: 0.7;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url(./assets/default/svg/nasa_logo.svg);
+        }
+
+        #loading-screen-text {
+            text-transform: uppercase;
+            font-size: 22px;
+            letter-spacing: 5px;
+            font-weight: 200;
+        }
+
+        #loading-screen-bar {
+            width: 200px;
+            max-width: 85vw;
+            margin-top: 20px;
+            height: 4px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+        }
+
+        #loading-screen-bar::after {
+            content: "";
+            display: block;
+            height: 4px;
+            background: #fff;
+            animation: load 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes load {
+            0% {
+                margin-left: 0;
+                margin-right: 100%;
+            }
+            50% {
+                margin-left: 25%;
+                margin-right: 0%;
+            }
+            100% {
+                margin-left: 100%;
+                margin-right: 0;
+            }
+        }
+
+        @keyframes fadeInDelayed {
+            0% {
+                opacity: 0;
+            }
+            75% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div id="loading-screen-wrapper">
+            <div id="loading-screen-stars1"></div>
+            <div id="loading-screen-stars2"></div>
+            <div id="loading-screen-logo"></div>
+            <div id="loading-screen-container">
+                <div id="loading-screen-text">Loading</div>
+                <div id="loading-screen-bar"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+    </script>
+    <script src="vendors.js"></script>
+    <script src="config.js"></script>
+    <script src="new.js"></script>
+</body>
+</html>
